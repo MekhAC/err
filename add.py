@@ -2,11 +2,11 @@ import csv
 from datetime import datetime
 from random import randrange
 
-with open('data.csv', 'a', newline='') as file:
+with open('data.txt', 'a', newline='') as file:
     writer = csv.writer(file)
 
     # Generate and append random log entries
-    for i in range(10):
+    for i in range(10000):
         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         level = ['INFO', 'WARN', 'ERROR'][randrange(3)]
         service = ['auth', 'payment', 'order'][randrange(3)]
