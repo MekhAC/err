@@ -1,0 +1,9 @@
+This project reads logs from CSV files and exposes analytics through REST API.
+
+The CSV file is read line by line using csv.reader.
+This means the app can handle very large files (GBs) without running out of memory.
+Instead of storing every log entry, only the required analytics are stored.
+Multithreading is used since file parsing is I/O bound. Threads parse chunks which update shared counters in a single lock.
+FastAPI is used to expose the required services, which are fast since they read from pre-aggregated data.
+
+
