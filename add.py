@@ -2,7 +2,7 @@ import csv
 from datetime import datetime
 from random import randrange
 
-with open('data.csv', 'a', newline='') as file:
+with open('data.txt', 'a', newline='') as file:
     writer = csv.writer(file)
 
     # Generate and append random log entries

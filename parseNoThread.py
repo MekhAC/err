@@ -11,10 +11,12 @@ class Parser:
         VALID_LEVELS = {"INFO", "WARN", "ERROR"}
         VALID_SERVICES = {"auth", "payment", "order"}
 
-        with open('data.csv', 'r') as file:
+        with open('data', 'r') as file:
             reader = csv.reader(file)
+            print(reader)
             header = next(reader)  # Skip header row
             for row in reader:
+                print(row)
                 try:
                     ts_str, level, service, message = row
 

@@ -52,13 +52,13 @@ class Parser:
             self.log_store.service_count.update(local_service_count)
             self.log_store.error_logs.extend(local_error_logs)
 
-    def parse_logs(self, file_path="data.csv", workers=4, chunk_size=5000):
+    def parse_logs(self, file_path="data.txt", workers=4, chunk_size=5000):
         """
         Stream CSV file and process it using a thread pool.
         """
 
         with open(file_path, "r", newline="", encoding="utf-8") as file:
-            reader = csv.reader(file)
+            reader = csv.reader(file, delimiter=',', skipinitialspace=True)
             next(reader, None)  # skip header
 
             chunk = []

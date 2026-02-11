@@ -15,22 +15,22 @@ def load_logs():
 
 
 @app.get("/levels")
-def by_level():
+ async def by_level():
     return dict(log_store.level_count)
 
 
 @app.get("/services")
-def by_service():
+async def by_service():
     return dict(log_store.service_count)
 
 
 @app.get("/top-services")
-def top_services(n: int = Query(3, ge=1, le=20)):
+async def top_services(n: int = Query(3, ge=1, le=20)):
     return log_store.service_count.most_common(n)
 
 
 @app.get("/errors")
-def recent_errors(minutes: int = Query(10)):
+async def recent_errors(minutes: int = Query(10)):
     cutoff = datetime.now() - timedelta(minutes=minutes)
 
     # sliding window eviction
