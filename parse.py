@@ -58,7 +58,7 @@ class Parser:
         """
 
         with open(file_path, "r", newline="", encoding="utf-8") as file:
-            reader = csv.reader(file, delimiter=',', skipinitialspace=True)
+            reader = csv.reader(file)
             next(reader, None)  # skip header
 
             chunk = []
