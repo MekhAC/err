@@ -11,11 +11,11 @@ parser = Parser(log_store)
 
 @app.on_event("startup")
 def load_logs():
-    parser.parse_logs()
+    parser.parse_logs('data.txt')
 
 
 @app.get("/levels")
- async def by_level():
+async def by_level():
     return dict(log_store.level_count)
 
 
